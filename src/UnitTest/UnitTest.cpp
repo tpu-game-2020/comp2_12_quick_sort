@@ -87,5 +87,32 @@ namespace UnitTest
 			// 片付け
 			finalize(a);
 		}
+
+		// 6つの場合(実質、2回目のソートが走る場合)を検証する
+		TEST_METHOD(TestMethod6)
+		{
+			// 初期化
+			array* a = create(6);
+
+			a->nodes[0].key = 1; strcpy_s(a->nodes[0].value, 256, "1");
+			a->nodes[1].key = 5; strcpy_s(a->nodes[1].value, 256, "5");
+			a->nodes[2].key = 3; strcpy_s(a->nodes[2].value, 256, "3");
+			a->nodes[3].key = 0; strcpy_s(a->nodes[3].value, 256, "0");
+			a->nodes[4].key = 2; strcpy_s(a->nodes[4].value, 256, "2");
+			a->nodes[5].key = 7; strcpy_s(a->nodes[5].value, 256, "7");
+
+			// ソート
+			quick_sort(a);
+
+			// 結果の検証
+			for (int i = 0; i < a->num; i++) {
+				static char expected[2] = "0";
+				expected[0] = '0' + a->nodes[i].key;
+				Assert::AreEqual(0, strcmp(expected, a->nodes[i].value));
+			}
+
+			// 片付け
+			finalize(a);
+		}
 	};
 }
