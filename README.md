@@ -8,7 +8,6 @@
 
 [![Actions Status](https://github.com/imagire/comp2_12_quick_sort/workflows/MSTest/badge.svg)](https://github.com/imagire/comp2_12_quick_sort/actions)　
 
-
 # 進め方
 * 本リポジトリをforkしてください
 * 上記の2か所の「tpu-game-2020」を自分のアカウント名に変更してください
