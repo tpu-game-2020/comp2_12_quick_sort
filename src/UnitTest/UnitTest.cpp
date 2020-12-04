@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 
 // メモリリークのキャプチャ
 #define _CRTDBG_MAP_ALLOC
