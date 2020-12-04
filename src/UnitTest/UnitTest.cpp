@@ -1,6 +1,6 @@
 #include "pch.h"
 
-// ƒƒ‚ƒŠƒŠ[ƒN‚ÌƒLƒƒƒvƒ`ƒƒ
+// ãƒ¡ãƒ¢ãƒªãƒªãƒ¼ã‚¯ã®ã‚­ãƒ£ãƒ—ãƒãƒ£
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -13,44 +13,44 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace UnitTest
 {
 	TEST_MODULE_CLEANUP(test_module_cleanup) {
-		Assert::IsFalse(_CrtDumpMemoryLeaks());// ƒƒ‚ƒŠƒŠ[ƒNƒ`ƒFƒbƒN
+		Assert::IsFalse(_CrtDumpMemoryLeaks());// ãƒ¡ãƒ¢ãƒªãƒªãƒ¼ã‚¯ãƒã‚§ãƒƒã‚¯
 	}
 
 	TEST_CLASS(UnitTest)
 	{
 	public:
 
-		// ˆê‚Â‚¾‚¯‚Ìê‡‚ğŒŸØ‚·‚é
+		// ä¸€ã¤ã ã‘ã®å ´åˆã‚’æ¤œè¨¼ã™ã‚‹
 		TEST_METHOD(TestMethod1)
 		{
-			// ‰Šú‰»
+			// åˆæœŸåŒ–
 			array* a = create(1);
 
 			a->nodes[0].key = 1; strcpy_s(a->nodes[0].value, 256, "hello world!");
 
-			// ƒ\[ƒg
+			// ã‚½ãƒ¼ãƒˆ
 			quick_sort(a);
 
-			// Œ‹‰Ê‚ÌŒŸØ
+			// çµæœã®æ¤œè¨¼
 			Assert::AreEqual("hello world!", a->nodes[0].value);
 
-			// •Ğ•t‚¯
+			// ç‰‡ä»˜ã‘
 			finalize(a);
 		}
 
-		// 2‚Â‚Ìê‡‚ğŒŸØ‚·‚é
+		// 2ã¤ã®å ´åˆã‚’æ¤œè¨¼ã™ã‚‹
 		TEST_METHOD(TestMethod2)
 		{
-			// ‰Šú‰»
+			// åˆæœŸåŒ–
 			array* a = create(2);
 
 			a->nodes[0].key = 2; strcpy_s(a->nodes[0].value, 256, "world!");
 			a->nodes[1].key = 1; strcpy_s(a->nodes[1].value, 256, "hello");
 
-			// ƒ\[ƒg
+			// ã‚½ãƒ¼ãƒˆ
 			quick_sort(a);
 
-			// Œ‹‰Ê‚ÌŒŸØ
+			// çµæœã®æ¤œè¨¼
 			for (int i = 0; i < a->num; i++) {
 				const static char* expected[] = {
 					"hello" ,
@@ -58,24 +58,24 @@ namespace UnitTest
 				Assert::AreEqual(expected[i], a->nodes[i].value);
 			}
 
-			// •Ğ•t‚¯
+			// ç‰‡ä»˜ã‘
 			finalize(a);
 		}
 
-		// 3‚Â‚Ìê‡‚ğŒŸØ‚·‚é
+		// 3ã¤ã®å ´åˆã‚’æ¤œè¨¼ã™ã‚‹
 		TEST_METHOD(TestMethod3)
 		{
-			// ‰Šú‰»
+			// åˆæœŸåŒ–
 			array* a = create(3);
 
 			a->nodes[0].key = 3; strcpy_s(a->nodes[0].value, 256, "!");
 			a->nodes[1].key = 2; strcpy_s(a->nodes[1].value, 256, "world");
 			a->nodes[2].key = 1; strcpy_s(a->nodes[2].value, 256, "hello");
 
-			// ƒ\[ƒg
+			// ã‚½ãƒ¼ãƒˆ
 			quick_sort(a);
 
-			// Œ‹‰Ê‚ÌŒŸØ
+			// çµæœã®æ¤œè¨¼
 			for (int i = 0; i < a->num; i++) {
 				const static char* expected[] = {
 					"hello" ,
@@ -84,34 +84,34 @@ namespace UnitTest
 				Assert::AreEqual(expected[i], a->nodes[i].value);
 			}
 
-			// •Ğ•t‚¯
+			// ç‰‡ä»˜ã‘
 			finalize(a);
 		}
 
-		// 6‚Â‚Ìê‡(À¿A2‰ñ–Ú‚Ìƒ\[ƒg‚ª‘–‚éê‡)‚ğŒŸØ‚·‚é
+		// 6ã¤ã®å ´åˆ(å®Ÿè³ªã€2å›ç›®ã®ã‚½ãƒ¼ãƒˆãŒèµ°ã‚‹å ´åˆ)ã‚’æ¤œè¨¼ã™ã‚‹
 		TEST_METHOD(TestMethod6)
 		{
-			// ‰Šú‰»
+			// åˆæœŸåŒ–
 			array* a = create(6);
 
 			a->nodes[0].key = 1; strcpy_s(a->nodes[0].value, 256, "1");
-			a->nodes[1].key = 5; strcpy_s(a->nodes[1].value, 256, "5");
+			a->nodes[1].key = 4; strcpy_s(a->nodes[1].value, 256, "4");
 			a->nodes[2].key = 3; strcpy_s(a->nodes[2].value, 256, "3");
 			a->nodes[3].key = 0; strcpy_s(a->nodes[3].value, 256, "0");
 			a->nodes[4].key = 2; strcpy_s(a->nodes[4].value, 256, "2");
-			a->nodes[5].key = 7; strcpy_s(a->nodes[5].value, 256, "7");
+			a->nodes[5].key = 5; strcpy_s(a->nodes[5].value, 256, "5");
 
-			// ƒ\[ƒg
+			// ã‚½ãƒ¼ãƒˆ
 			quick_sort(a);
 
-			// Œ‹‰Ê‚ÌŒŸØ
+			// çµæœã®æ¤œè¨¼
 			for (int i = 0; i < a->num; i++) {
 				static char expected[2] = "0";
-				expected[0] = '0' + a->nodes[i].key;
+				expected[0] = '0' + i;
 				Assert::AreEqual(0, strcmp(expected, a->nodes[i].value));
 			}
 
-			// •Ğ•t‚¯
+			// ç‰‡ä»˜ã‘
 			finalize(a);
 		}
 	};
