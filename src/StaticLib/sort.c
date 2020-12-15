@@ -30,7 +30,6 @@ static void quick_sort_sub(node* p,int begin, int end)
 
 		swap(&p[l], &p[r]);
 
-		l++; r++;
 	}
 
 	quick_sort_sub(p, begin, l - 1);
