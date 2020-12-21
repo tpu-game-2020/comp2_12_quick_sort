@@ -1,0 +1,8 @@
+﻿1>------ ビルド開始: プロジェクト: StaticLib, 構成: Debug x64 ------
+1>sort.c
+1>StaticLib.vcxproj -> C:\Users\Owner\OneDrive\ドキュメント\GitHub\comp2_12_quick_sort\src\x64\Debug\StaticLib.lib
+2>------ ビルド開始: プロジェクト: src, 構成: Debug x64 ------
+3>------ ビルド開始: プロジェクト: UnitTest, 構成: Debug x64 ------
+3>UnitTest.vcxproj -> C:\Users\Owner\OneDrive\ドキュメント\GitHub\comp2_12_quick_sort\src\x64\Debug\UnitTest.dll
+2>src.vcxproj -> C:\Users\Owner\OneDrive\ドキュメント\GitHub\comp2_12_quick_sort\src\x64\Debug\src.exe
+========== ビルド: 3 正常終了、0 失敗、0 更新不要、0 スキップ ==========

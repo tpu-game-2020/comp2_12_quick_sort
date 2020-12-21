@@ -2,12 +2,46 @@
 #include <stdbool.h>
 #include "../include/libsort.h"
 
+static void swap(node* a, node* b)
+{
+	node temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+static void quick_sort_sub(node* p, int begin, int end)
+{
+	int pivot;
+	int l, r;
+
+	if (begin >= end)
+	{
+		return;
+	}
+
+	pivot = p[begin].key;
+	l = begin;
+	r = end;
+
+	while (l < r)
+	{
+		while (p[l].key < pivot) l++;
+		while (p[r].key > pivot) r--;
+
+		swap(&p[l], &p[r]);
+
+	}
+
+	quick_sort_sub(p, begin, l - 1);
+	quick_sort_sub(p, r + 1, end);
+
+}
 
 // ソート
 void quick_sort(array* a)
 {
 	// ToDo: 実装してください
-	a->nodes = NULL;
+	quick_sort_sub(a->nodes, 0, a->num - 1);
 }
 
 
