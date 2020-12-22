@@ -17,8 +17,6 @@ static void quick_sort_sub(node* p, int begin, int end)
 		return;
 	}
 	
-	//int pivot;
-	/* pivot の決定 */
 	node pivot = p[begin];
 	int i = begin;
 	int j = end;
@@ -37,7 +35,7 @@ static void quick_sort_sub(node* p, int begin, int end)
 		{
 			break;
 		}
-		swap(&(p[i]), &(p[j]));
+		swap(&p[i], &p[j]);
 		i++;
 		j--;
 	}
@@ -48,7 +46,7 @@ static void quick_sort_sub(node* p, int begin, int end)
 // ソート
 void quick_sort(array* a)
 {
-	quick_sort_sub(a->nodes, 0, a->num);
+	quick_sort_sub(a->nodes, 0, a->num - 1);
 }
 
 
